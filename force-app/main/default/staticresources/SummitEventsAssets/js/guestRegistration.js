@@ -158,6 +158,9 @@ function buildGuestForm() {
                     case 'date':
                         formElement.appendChild(buildInputBox(q, 'date'));
                         break;
+                    case 'checkbox':
+                        formElement.appendChild(buildInputBox(q, 'checkbox'));
+                        break;    
                 }
             }
             qWrap.appendChild(formElement);
@@ -249,6 +252,9 @@ function buildInputBox(question, inputType) {
     } else {
         inputBox = document.createElement('input');
         inputBox.type = inputType;
+        if(inputType === 'checkbox'){
+            inputBox.style.width = "10%";
+        }
     }
     if (question.defaultValue) {
         inputBox.value = question.defaultValue;
